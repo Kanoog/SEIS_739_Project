@@ -1,31 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
-// @import 'main-styles';
+// /* You can add global styles to this file, and also import other style files */
 
-//@import '../node_modules/bulma/bulma.sass';
-
-//@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
 
 $orange: #FFA500;
 
 $yellow: #FFFF00;
 
-$dark-green: #06402B;
+// $dark-orange: #d65d16;
 
 $white: #FFFFFF;
 
 //update bulma's global variables
 
 $family-sans-serif: "Nunito", sans-serif;
-$primary: $orange;
 
-$link: $dark-green;
-
-//bulma component variables update
+// bulma component variables update
 
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
-
 
 //set custom global styles to apply to whole application
 
