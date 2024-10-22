@@ -1,37 +1,36 @@
-//global styles and change variable values
+// //global styles and change variable values
 
-//import google fonts
+// //import google fonts
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
+// @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
 
-$orange: #FFA500;
+// $orange: #FFA500;
 
-$yellow: #FFFF00;
+// $yellow: #FFFF00;
 
-$dark-green: #06402B;
+// $dark-green: #06402B;
 
-$white: #FFFFFF;
+// $white: #FFFFFF;
 
-//update bulma's global variables
+// //update bulma's global variables
 
-$family-sans-serif: "Nunito", sans-serif;
-$primary: $orange;
+// $family-sans-serif: "Nunito", sans-serif;
+// $primary: $orange;
 
-$link: $dark-green;
+// $link: $dark-green;
 
-//bulma component variables update
+// //bulma component variables update
 
-$control-border-width: 2px;
-$input-border-color: transparent;
-$input-shadow: none;
+// $control-border-width: 2px;
+// $input-border-color: transparent;
+// $input-shadow: none;
 
+// //set custom global styles to apply to whole application
 
-//set custom global styles to apply to whole application
+// html {
+//     background: linear-gradient(to right top, $orange, $yellow);
+// }
 
-html {
-    background: linear-gradient(to right top, $orange, $yellow);
-}
-
-html, body {
-    height: 100%;
-}
+// html, body {
+//     height: 100%;
+// }
