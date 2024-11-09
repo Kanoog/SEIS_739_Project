@@ -35,6 +35,10 @@ public class TaskList {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getTaskList() {
         return taskList;
     }
