@@ -1,4 +1,3 @@
-@import '../../../styles.scss';
 
 .centered-content {
     display: flex;
@@ -81,9 +80,7 @@
     &:not(.complete) {
         cursor: pointer;
         transition: box-shadow 0.2s ease, transform 0.2s ease;
-    
-    
-    
+
         &:active {
             transform: scale(0.95);
         }
@@ -103,8 +100,6 @@ button {
     flex-direction: column;
     padding: 5px;
     max-width: 100px;
-    background-color: orange;
-    color: white;
     font-family: 'Lato';
     font-size: 15px;
     font-weight: 200;
