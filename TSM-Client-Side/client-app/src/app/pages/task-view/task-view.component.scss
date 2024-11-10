@@ -38,7 +38,7 @@
 }
 
 .title {
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -49,6 +49,7 @@
     flex-direction: column;
     margin: 15px;
     flex-grow: 1;
+
     .list-menu-item {
         display: flex;
         align-items: center;
@@ -84,11 +85,12 @@
         &:active {
             transform: scale(0.95);
         }
-    
+
         &:hover {
             box-shadow: 0 0 0 5px #eeeeee;
         }
     }
+
     &.complete {
         text-decoration: line-through;
         opacity: 0.8;
@@ -100,7 +102,7 @@ button {
     flex-direction: column;
     padding: 5px;
     max-width: 100px;
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     font-size: 15px;
     font-weight: 200;
     border-radius: 8px;
