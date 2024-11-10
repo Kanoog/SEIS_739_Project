@@ -25,7 +25,7 @@ public class TaskList {
     private Integer id;
 
     @Column(name = "List")
-    private String taskList;
+    private String list;
 
     @Column(name = "DueDate")
     @JsonFormat(pattern = "MM/dd/yyyy")
@@ -40,15 +40,15 @@ public class TaskList {
     }
 
     public String getTaskList() {
-        return taskList;
+        return list;
     }
 
     public void setTaskList(String list) {
-        this.taskList = list;
+        this.list = list;
     }
 
-    public String getDueDate() {
-        return taskList;
+    public LocalDate getDueDate() {
+        return dueDate;
     }
 
     public void setDueDate(String date) {
