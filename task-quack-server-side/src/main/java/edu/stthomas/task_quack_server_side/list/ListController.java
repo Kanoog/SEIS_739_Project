@@ -1,4 +1,4 @@
-package edu.stthomas.task_quack_server_side.task;
+package edu.stthomas.task_quack_server_side.list;
 
 import java.util.List;
 
@@ -16,34 +16,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
 @RequestMapping("/api/lists")
-public class TaskController {
+public class ListController {
 
-    private final TaskService service;
+    private final ListService service;
 
-    public TaskController(TaskService service) {
+    public ListController(ListService service) {
         this.service = service;
     }
 
     @GetMapping("")
-    List<Task> getALL() {
-        return service.findAllTask();
+    public List<ListContent> getALL() {
+        return service.findAllList();
     }
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    Task create(@RequestBody Task task) {
-        return service.createTask(task);
+    public ListContent create(@RequestBody ListContent list) {
+        return service.createList(list);
     }
 
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    Task update(@PathVariable Integer id, @RequestBody Task updateTask) {
-        return service.updateTask(updateTask, id);
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public ListContent update(@PathVariable Integer id, @RequestBody ListContent updateList) {
+        return service.updateList(updateList, id);
     }
 
     @DeleteMapping("/{id}")
-    String delete (@PathVariable Integer id) {
-        return service.deleteTask(id);
+    public String delete (@PathVariable Integer id) {
+        return service.deleteList(id);
     }
 
 }

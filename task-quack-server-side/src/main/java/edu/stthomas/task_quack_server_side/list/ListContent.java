@@ -1,4 +1,4 @@
-package edu.stthomas.task_quack_server_side.task;
+package edu.stthomas.task_quack_server_side.list;
 
 import java.time.LocalDate;
 
@@ -12,12 +12,12 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Task {
+public class ListContent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
    
-    private String lists;
+    private String list;
     
     private String tasks;
 
