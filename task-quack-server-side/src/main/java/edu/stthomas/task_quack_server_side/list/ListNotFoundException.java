@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class ListNotFoundException extends RuntimeException {
 
     public ListNotFoundException(){
-        super("Task Not Found");
+        super("List Not Found");
     }
 }
