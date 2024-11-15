@@ -24,7 +24,11 @@ public class ListServiceImp implements ListService {
 
     @Override
     public ListContent updateList(ListContent updateTask, Integer id) {
+        if(!lists.existsById(Long.valueOf(id))){
+            throw new ListNotFoundException();
+        }
         return lists.save(updateTask);
+
     }
 
     @Override
