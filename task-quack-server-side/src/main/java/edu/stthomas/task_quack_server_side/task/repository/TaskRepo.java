@@ -12,6 +12,8 @@ import edu.stthomas.task_quack_server_side.task.model.Tasks;
 
 @Repository
 public interface TaskRepo extends JpaRepository<Tasks, Long> {
+
+    //JPQl query to find task by listId
     @Query("SELECT t FROM Tasks t WHERE t.list.id = :listId")
     List<Tasks> findByListId(@Param("listId") Integer listId);
 }
