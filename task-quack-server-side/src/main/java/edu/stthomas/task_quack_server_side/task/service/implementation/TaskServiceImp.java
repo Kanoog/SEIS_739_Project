@@ -5,16 +5,19 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import edu.stthomas.task_quack_server_side.list.ListNotFoundException;
+import edu.stthomas.task_quack_server_side.common.exception.ResourceNotFoundException;
 import edu.stthomas.task_quack_server_side.list.model.Lists;
 import edu.stthomas.task_quack_server_side.list.repository.ListRepo;
-import edu.stthomas.task_quack_server_side.task.TaskNotFoundException;
 import edu.stthomas.task_quack_server_side.task.model.Tasks;
 import edu.stthomas.task_quack_server_side.task.repository.TaskRepo;
 import edu.stthomas.task_quack_server_side.task.service.TaskService;
 
 @Service
 public class TaskServiceImp implements TaskService {
+
+    private String LIST_NOT_FOUND = "List not found with list ID: ";
+    private String TASK_NOT_FOUND = "Task not found with task ID: ";
+
 
     private TaskRepo tasks;
     private ListRepo list;
@@ -28,7 +31,7 @@ public class TaskServiceImp implements TaskService {
     public List<Tasks> findAllTaskByListId(Integer listId) {
         Optional<Lists> existingList = list.findById(Long.valueOf(listId));
         if (!existingList.isPresent()) {
-            throw new ListNotFoundException();
+            throw new ResourceNotFoundException(LIST_NOT_FOUND + listId);
         }
         return tasks.findByListId(listId);
     }
@@ -37,7 +40,7 @@ public class TaskServiceImp implements TaskService {
     public Tasks createTask(Integer listId, Tasks task) {
         Optional<Lists> existingList = list.findById(Long.valueOf(listId));
         if (!existingList.isPresent()) {
-            throw new ListNotFoundException();
+            throw new ResourceNotFoundException(LIST_NOT_FOUND + listId);
         }
         Lists referenceList = existingList.get();
         task.setList(referenceList);
@@ -50,10 +53,10 @@ public class TaskServiceImp implements TaskService {
         Optional<Lists> existingList = list.findById(Long.valueOf(listId));
        
         if (!existingList.isPresent()) {
-            throw new ListNotFoundException();
+            throw new ResourceNotFoundException(LIST_NOT_FOUND + listId);
         }
         if (!tasks.existsById(Long.valueOf(id))) {
-            throw new TaskNotFoundException();
+            throw new ResourceNotFoundException(TASK_NOT_FOUND + id);
         }
 
         Tasks task = tasks.findById(Long.valueOf(id)).get();

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import edu.stthomas.task_quack_server_side.list.ListNotFoundException;
+import edu.stthomas.task_quack_server_side.common.exception.ResourceNotFoundException;
 import edu.stthomas.task_quack_server_side.list.model.Lists;
 import edu.stthomas.task_quack_server_side.list.repository.ListRepo;
 import edu.stthomas.task_quack_server_side.list.service.ListService;
@@ -13,6 +13,7 @@ import edu.stthomas.task_quack_server_side.list.service.ListService;
 @Service
 public class ListServiceImp implements ListService {
 
+    private String LIST_NOT_FOUND = "List not found with list ID: ";
     private ListRepo lists;
 
     public ListServiceImp(ListRepo repository) {
@@ -37,7 +38,7 @@ public class ListServiceImp implements ListService {
     @Override
     public Lists updateList(Lists list, Integer listId) {
         if(!lists.existsById(Long.valueOf(listId))){
-            throw new ListNotFoundException();
+            throw new ResourceNotFoundException(LIST_NOT_FOUND + listId);
         }
         return lists.save(list);
     }
