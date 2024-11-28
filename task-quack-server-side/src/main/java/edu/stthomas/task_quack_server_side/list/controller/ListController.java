@@ -19,8 +19,6 @@ import edu.stthomas.task_quack_server_side.list.model.Lists;
 import edu.stthomas.task_quack_server_side.list.service.ListService;
 
 
-
-
 @RestController()
 @RequestMapping("/api/lists")
 public class ListController {
