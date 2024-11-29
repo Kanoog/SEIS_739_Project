@@ -7,18 +7,18 @@ import { HttpClient } from '@angular/common/http';
 export class WebRequestService {
 readonly ROOT_URL;
   constructor(private http:HttpClient) { 
-    this.ROOT_URL='http://localhost:3000'
+    this.ROOT_URL='http://localhost:8080/api/lists'
   }
-  get(uri:string){
-    return this.http.get(`${this.ROOT_URL}/${uri}`);
+  get(){
+    return this.http.get(`${this.ROOT_URL}`);
   }
-  post(uri:string, payload:Object) {
-    return this.http.post(`${this.ROOT_URL}/${uri}`, payload);
+  post(payload:Object) {
+    return this.http.post(`${this.ROOT_URL}`, payload);
   }
-  patch(uri:string, payload:Object) {
+  patch(uri:number, payload:Object) {
     return this.http.patch(`${this.ROOT_URL}/${uri}`, payload);
   }
-  delete(uri:string) {
+  delete(uri:number) {
     return this.http.delete(`${this.ROOT_URL}/${uri}`);
   }
 }
