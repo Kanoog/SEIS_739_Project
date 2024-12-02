@@ -9,28 +9,23 @@
                 Lists
             </h1>
             <div class="list-menu">
-                <!-- delete after ng starts working, after connecting database: -->
-                <a class="list-menu-item">
-                    <p>List #2</p>
-                </a>
-                <a class="list-menu-item"  routerLinkActive="is-active">
-                    <!-- <p>{list.title}</p> -->
+                <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list.listId, 'tasks']" routerLinkActive="is-active">
+                    <p>{{list.list}}</p>
                 </a>
             </div>
             
-            <button class="button is-outlined is-warning" routerLink="/new-list">+ Add List</button>
+            <button class="button is-warning is-state" routerLink="/new-list"> New List</button>
         </div>
 
         <div class="task-list-container">
             <h1 class="title has-text-warning">
                 Tasks
             </h1>
-            <!-- Task Elements-->
-            <div class="task" *ngFor="let task of tasks">
-                <!-- <p>{{task.title}}</p> -->
-            </div>
+            <a class="task" *ngFor="let task of tasks">
+                <p>{{task.task}}</p>
+            </a>
 
-            <button class="button is-outlined is-warning" routerLink="/new-task">+ Add Task</button>
+            <button class="taskButton button is-warning is-state" routerLink="/new-task"> New Task</button>
         </div>
     </div>
 </div>

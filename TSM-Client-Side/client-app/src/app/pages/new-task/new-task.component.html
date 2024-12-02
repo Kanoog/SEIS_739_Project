@@ -3,12 +3,13 @@
         <h1 class="title">
             Create a new Task
         </h1>
-        <input #taskTitleInput class="input has-background-light" type="text" placeholder="Enter Task">
+<div>        <input #taskTitleInput class="input has-background-light" type="text" placeholder="Enter a task...">
+</div>
         <br>
         <br>
-          <div class="buttons is-right">
-            <button class="button has-text-white" routerLink="/">Cancel</button>
-            <button class="button has-text-white">Create</button>
-          </div>
+        <div class="buttons is-right">
+          <button class="button is-warning has-text-white" routerLink="/">Cancel</button>
+          <button class="button is-warning has-text-white" (click)="createTask(taskTitleInput.value)">Create</button>
+        </div>
     </div>
 </div>

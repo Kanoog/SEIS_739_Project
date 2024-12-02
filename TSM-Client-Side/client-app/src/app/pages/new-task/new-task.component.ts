@@ -3,8 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
-  styleUrl: './new-task.component.scss'
+  styleUrl: './new-task.component.scss',
 })
 export class NewTaskComponent {
-
+  
+  createTask(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
 }

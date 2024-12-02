@@ -37,6 +37,7 @@
 }
 
 .task-list-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -108,13 +109,13 @@
 }
 
 button {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    max-width: 100px;
     font-family: 'Lato', sans-serif;
-    font-size: 15px;
-    font-weight: 200;
-    border-radius: 8px;
-    outline-color: transparent;
+}
+
+.taskButton {
+    position: absolute;
+    top: 40px;
+    right:35px;
+    height: 30px;
+    width:100px;
 }

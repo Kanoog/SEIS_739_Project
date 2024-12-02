@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
   { path: 'new-task', component: NewTaskComponent},
   { path: 'lists' , component: TaskViewComponent},
-  { path: 'lists/:listId' , component: TaskViewComponent},
+  { path: 'lists/:listId/tasks' , component: TaskViewComponent}
 ];
 
 @NgModule({

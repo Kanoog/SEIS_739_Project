@@ -1,4 +1,7 @@
-export class List {
-    //_id!: string;
-    //title!: string;
+// import { Task } from "./task.model";
+
+export interface List {
+    listId: string;
+    list: string;
+    // tasks: Task[];
 }
