@@ -16,7 +16,7 @@ export class NewListComponent {
   createList(title:string) {
     this.taskService.createList(title).subscribe((response: any)=> {
       console.log(response);
-
+      
       //navigate back to list page after creating list
       this.router.navigate(['/lists', response.listId, 'tasks']);
     });
