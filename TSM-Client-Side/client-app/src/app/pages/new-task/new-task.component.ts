@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { TaskService } from '../../task.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Task } from '../../models/task.model';
 
 @Component({
   selector: 'app-new-task',
@@ -6,8 +9,28 @@ import { Component } from '@angular/core';
   styleUrl: './new-task.component.scss',
 })
 export class NewTaskComponent {
-  
-  createTask(arg0: string) {
-    throw new Error('Method not implemented.');
+
+  listId!: number;
+
+  constructor(private taskService: TaskService, private route: ActivatedRoute) {
+
+  }
+
+  ngOnInIt(){
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.listId = params['listId'];
+        console.log(this.listId);
+      }
+    )
+  }
+
+  createTask(taskName: string) {
+    this.taskService.createTask(this.listId, taskName).subscribe((data) => {
+      const task = data as Task;
+      console.log(task);
+      //navigate back to list page after creating list
+      // this.router.navigate(['/lists', this.listId, 'tasks/new-task']);
+    });
   }
 }
