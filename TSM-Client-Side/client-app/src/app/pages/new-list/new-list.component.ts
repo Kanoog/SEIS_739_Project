@@ -13,12 +13,11 @@ export class NewListComponent {
 
   }
 
-  createList(title:string) {
-    this.taskService.createList(title).subscribe((response: any)=> {
-      console.log(response);
-      
+  createList(listName: string) {
+    this.taskService.createList(listName).subscribe((data) => {
+      const list = data as List;
       //navigate back to list page after creating list
-      this.router.navigate(['/lists', response.listId, 'tasks']);
+      this.router.navigate(['/lists', list.listId, 'tasks']);
     });
   }
 }
