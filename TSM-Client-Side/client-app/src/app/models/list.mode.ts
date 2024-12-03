@@ -1,8 +1,6 @@
-// import { Task } from "./task.model";
+import { Task } from "./task.model";
 
 export interface List {
-    listId: string;
+    listId: number;
     list: string;
-    // tasks: Task[];
-  
 }
