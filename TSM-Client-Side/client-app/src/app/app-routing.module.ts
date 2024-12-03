@@ -9,9 +9,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/lists', pathMatch: 'full'},
   { path: 'new-list', component: NewListComponent},
   { path: 'login', component: LoginPageComponent},
-  { path: 'new-task', component: NewTaskComponent},
   { path: 'lists' , component: TaskViewComponent},
-  { path: 'lists/:listId/tasks' , component: TaskViewComponent}
+  { path: 'lists/:listId/tasks' , component: TaskViewComponent},
+  { path: 'lists/:listId/tasks/new-task', component: NewTaskComponent}
 ];
 
 @NgModule({
