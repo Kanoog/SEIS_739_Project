@@ -1,0 +1,37 @@
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-box {
+    min-height: 200px;
+    width: 100%;
+    max-width: 580px;
+    background: beige;
+    border-radius: 5px;
+    padding: 35px;
+}
+
+::placeholder{
+    color:orange;
+}
+
+.button{
+    background-color: orange;
+    color: white;
+}
+
+.input {
+    color: orange;
+}
+
+.title {
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: orange;
+}

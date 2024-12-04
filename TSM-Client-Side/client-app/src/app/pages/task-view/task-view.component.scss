@@ -1,3 +1,21 @@
+.title {
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: orange;
+}
+
+.title-content {
+    display: flex;
+    min-height: 100px;
+    width: 100%;
+    background: beige;
+    border-radius: 5px;
+    padding: 35px;
+    justify-content: center;
+    align-items: center;
+}
 
 .centered-content {
     display: flex;
@@ -19,7 +37,7 @@
     display: flex;
     flex-direction: column;
     width: 250px;
-    background-color: white;
+    background-color: beige;
 
     padding: 42px;
     border-top-left-radius: 8px;
@@ -30,7 +48,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background-color: beige;
+    background-color: rgb(235, 235, 208);
     padding: 42px;
 
     border-top-right-radius: 8px;
@@ -72,7 +90,7 @@
 }
 
 .task {
-    background-color: white;
+    background-color: beige;
     padding: 10px 15px;
     border-radius: 5px;
     margin-top: 10px;

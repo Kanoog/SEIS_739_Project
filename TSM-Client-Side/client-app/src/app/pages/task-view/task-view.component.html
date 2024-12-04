@@ -1,37 +1,36 @@
+
+<div class="title-content">
+    <h1 class="title">Welcome to TaskQuack 𓅰</h1>
+</div>
 <div class="centered-content">
     <div class="task-manager-container">
-
-        <div class="sidebar has-background-white">
+        <div class="sidebar">
             <h1 class="title has-text-warning">
                 Lists
             </h1>
-
             <div class="list-menu">
-                <a class="list-menu-item is-active">
-                    <p>List #1</p>
-                </a>
+                <!-- delete after ng starts working, after connecting database: -->
                 <a class="list-menu-item">
                     <p>List #2</p>
                 </a>
-                <a class="list-menu-item">
-                    <p>List #3</p>
+                <a class="list-menu-item"  routerLinkActive="is-active">
+                    <!-- <p>{list.title}</p> -->
                 </a>
             </div>
             
-            <button class="button is-outlined is-warning">Add List</button>
+            <button class="button is-outlined is-warning" routerLink="/new-list">+ Add List</button>
         </div>
 
-        <div class="task-list-container has-background-white">
+        <div class="task-list-container">
             <h1 class="title has-text-warning">
                 Tasks
             </h1>
             <!-- Task Elements-->
-            <div class="task">
-                <p>This is something i have to do</p>
+            <div class="task" *ngFor="let task of tasks">
+                <!-- <p>{{task.title}}</p> -->
             </div>
-            <div class="task complete">
-                <p>This is something i have to do</p>
-            </div>
+
+            <button class="button is-outlined is-warning" routerLink="/new-task">+ Add Task</button>
         </div>
     </div>
 </div>
