@@ -9,15 +9,15 @@ import { List } from '../../models/list.mode';
   styleUrl: './new-list.component.scss'
 })
 export class NewListComponent {
-  constructor(private taskService:TaskService, private router:Router) {
+  constructor(private taskService: TaskService, private router: Router) {
 
   }
 
-  createList(title:string) {
-    this.taskService.createList(title).subscribe((response: any)=> {
-      console.log(response);
-      //now we navigate to /lists/response._id
-      this.router.navigate(['/lists',response._id]);
+  createList(listName: string) {
+    this.taskService.createList(listName).subscribe((data) => {
+      const list = data as List;
+      //navigate back to list page after creating list
+      this.router.navigate(['/lists', list.listId, 'tasks']);
     });
   }
 }

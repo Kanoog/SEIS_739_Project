@@ -17,20 +17,12 @@
     align-items: center;
 }
 
-.centered-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
 .task-manager-container {
     display: flex;
     width: 100%;
     height: 100%;
     max-width: 1000px;
-    max-height: 450px;
+    max-height: 700px;
 }
 
 .sidebar {
@@ -45,6 +37,7 @@
 }
 
 .task-list-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -78,11 +71,11 @@
         margin-bottom: 5px;
 
         &:hover {
-            background: yellow;
+            background: rgb(255,219,88);
         }
 
-        &:is-active {
-            background-color: #cff8ef;
+        &.is-active {
+            background-color:  rgb(255,219,88);
             color: #06402B;
         }
     }
@@ -116,13 +109,13 @@
 }
 
 button {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    max-width: 100px;
     font-family: 'Lato', sans-serif;
-    font-size: 15px;
-    font-weight: 200;
-    border-radius: 8px;
-    outline-color: transparent;
+}
+
+.taskButton {
+    position: absolute;
+    top: 40px;
+    right:35px;
+    height: 30px;
+    width:100px;
 }

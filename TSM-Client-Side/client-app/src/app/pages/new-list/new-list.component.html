@@ -3,12 +3,13 @@
         <h1 class="title">
             Create a new list
         </h1>
-        <input #listTitleInput class="input has-background-light" type="text" placeholder="Enter List Name">
+
+        <input #listTitleInput class="input has-background-light" type="text" placeholder="Enter a list name...">
         <br>
         <br>
           <div class="buttons is-right">
-            <button class="button has-text-white" routerLink="/">Cancel</button>
-            <button class="button has-text-white" (click)="createList(listTitleInput.value)">Create</button>
+            <button class="button is-warning has-text-white" routerLink="/">Cancel</button>
+            <button class="button is-warning has-text-white" (click)="createList(listTitleInput.value)">Create</button>
           </div>
     </div>
 </div>

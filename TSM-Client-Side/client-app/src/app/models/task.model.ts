@@ -1,5 +1,6 @@
-export class Task {
-   // _id!: string;
-    //title!: string;
-    //_listId!: string;
+export interface Task {
+   taskId: number;
+    task: string;
+    listId: number;
+  
 }

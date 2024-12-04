@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
 import { WebRequestService } from './web-request.service';
+import { List } from './models/list.mode';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
+  constructor(private webReqService: WebRequestService) {}
 
-  constructor(private webReqService:WebRequestService) { }
-
-  createList(title:string) {
-    //we want to send a web request to create a list
-    return this.webReqService.post('lists', {title});
+  //get all the lists
+  getLists() {
+    return this.webReqService.get();
+  }
+  //create a list
+  createList(list: string) {
+    return this.webReqService.postList({ list });
   }
 
-  getLists(){
-    return this.webReqService.get('lists');
+  //get task by list ID
+  getTasks(listId: number) {
+    return this.webReqService.getTaskByListId(listId);
   }
-  getTasks(listId:string) {
-    return this.webReqService.get(`lists/${listId}/tasks`);
+
+  //create a list
+  createTask(listId: number, task: string) {
+    return this.webReqService.postTask(listId, {task});
   }
 }
