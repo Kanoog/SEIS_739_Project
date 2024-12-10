@@ -14,7 +14,7 @@ export class TaskService {
   }
   //create a list
   createList(list: string) {
-    return this.webReqService.postList({ list });
+    return this.webReqService.postList({list});
   }
 
   //get task by list ID
