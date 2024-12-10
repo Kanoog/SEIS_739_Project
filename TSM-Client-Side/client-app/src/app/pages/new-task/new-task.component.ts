@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../../task.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Task } from '../../models/task.model';
 
 @Component({
@@ -14,21 +14,20 @@ export class NewTaskComponent {
 
   constructor(
     private taskService: TaskService, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      console.log("this is from new-task");
       this.listId = params['listId'];
-      console.log(this.listId + "This is from new-task.ts");
     });
   }
   createTask(taskName: string) {
     this.taskService.createTask(this.listId, taskName).subscribe((data) => {
       const newTask = data as Task;
-      console.log(newTask);
       //navigate back to list page after creating list
+      this.router.navigate(['../'], {relativeTo: this.route});
     });
   }
 }
