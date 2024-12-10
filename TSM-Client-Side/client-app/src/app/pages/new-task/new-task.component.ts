@@ -10,27 +10,25 @@ import { Task } from '../../models/task.model';
 })
 export class NewTaskComponent {
 
-  listId!: number;
+  listId: any;
 
-  constructor(private taskService: TaskService, private route: ActivatedRoute) {
+  constructor(
+    private taskService: TaskService, 
+    private route: ActivatedRoute
+  ) {}
 
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      console.log("this is from new-task");
+      this.listId = params['listId'];
+      console.log(this.listId + "This is from new-task.ts");
+    });
   }
-
-  ngOnInIt(){
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.listId = params['listId'];
-        console.log(this.listId);
-      }
-    )
-  }
-
   createTask(taskName: string) {
     this.taskService.createTask(this.listId, taskName).subscribe((data) => {
-      const task = data as Task;
-      console.log(task);
+      const newTask = data as Task;
+      console.log(newTask);
       //navigate back to list page after creating list
-      // this.router.navigate(['/lists', this.listId, 'tasks/new-task']);
     });
   }
 }
