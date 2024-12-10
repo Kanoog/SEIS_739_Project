@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../../task.service';
 import { Router } from '@angular/router';
-import { List } from '../../models/list.mode';
+import { List } from '../../models/list.model';
 
 @Component({
   selector: 'app-new-list',

@@ -4,13 +4,13 @@
             Create a new Task
         </h1>
 <div>        
-  <input #taskTitleInput class="input has-background-light" type="text" placeholder="Enter a task...">
+  <input #taskInput class="input has-background-light" type="text" placeholder="Enter a task...">
 </div>
         <br>
         <br>
         <div class="buttons is-right">
           <button class="button is-warning has-text-white" routerLink="/">Cancel</button>
-          <button class="button is-warning has-text-white" (click)="createTask(taskTitleInput.value)">Create</button>
+          <button class="button is-warning has-text-white" (click)="createTask(taskInput.value)">Create</button>
         </div>
     </div>
 </div>
