@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import edu.stthomas.task_quack_server_side.common.exception.ResourceNotFoundException;
 import edu.stthomas.task_quack_server_side.list.model.Lists;
@@ -17,7 +18,6 @@ public class TaskServiceImp implements TaskService {
 
     private String LIST_NOT_FOUND = "List not found with list ID: ";
     private String TASK_NOT_FOUND = "Task not found with task ID: ";
-
 
     private TaskRepo tasks;
     private ListRepo list;
@@ -49,9 +49,9 @@ public class TaskServiceImp implements TaskService {
     }
 
     @Override
-    public Tasks updateTask(Tasks updateTask,Integer listId, Integer id) {
+    public Tasks updateTask(Tasks updateTask, Integer listId, Integer id) {
         Optional<Lists> existingList = list.findById(Long.valueOf(listId));
-       
+
         if (!existingList.isPresent()) {
             throw new ResourceNotFoundException(LIST_NOT_FOUND + listId);
         }
@@ -61,13 +61,36 @@ public class TaskServiceImp implements TaskService {
 
         Tasks task = tasks.findById(Long.valueOf(id)).get();
 
-        if(!task.getTask().equals(updateTask.getTask())){
+        if (!task.getTask().equals(updateTask.getTask())) {
             task.setTask(updateTask.getTask());
         }
-        if(!task.getDueDate().equals(updateTask.getDueDate())){
-            task.setDueDate(updateTask.getDueDate());
-        }
+        // if(!task.getDueDate().equals(updateTask.getDueDate())){
+        // task.setDueDate(updateTask.getDueDate());
+        // }
         return tasks.save(task);
+    }
+
+    @Override
+    public void updateTaskCompletion(Object updateTask, Integer listId, Integer id) {
+        Optional<Lists> existingList = list.findById(Long.valueOf(listId));
+
+        if (!existingList.isPresent()) {
+            throw new ResourceNotFoundException(LIST_NOT_FOUND + listId);
+        }
+        if (!tasks.existsById(Long.valueOf(id))) {
+            throw new ResourceNotFoundException(TASK_NOT_FOUND + id);
+        }
+
+        Tasks task = tasks.findById(Long.valueOf(id)).get();
+
+        if (!task.isCompleted()) {
+            task.setCompleted(true);
+            tasks.save(task);
+        } else if(task.isCompleted()){
+            task.setCompleted(false);
+            tasks.save(task);
+        }
+        
     }
 
     @Override

@@ -3,9 +3,11 @@ package edu.stthomas.task_quack_server_side.task.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -44,6 +46,13 @@ public class TaskController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Tasks update(@PathVariable Integer listId, @PathVariable Integer id, @RequestBody Tasks updateTask) {
         return service.updateTask(updateTask, listId, id);
+    }
+    
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public ResponseEntity<HttpStatus> updateTaskComplete(@PathVariable Integer listId, @PathVariable Integer id, @RequestBody Object updateTask) {
+        this.service.updateTaskCompletion(updateTask, listId, id);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

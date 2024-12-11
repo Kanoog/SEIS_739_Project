@@ -29,12 +29,15 @@ public class Tasks {
     @Column(name = "task", nullable = false)
     private String task;
 
-    @Column(name = "due_date")
-    @JsonFormat(pattern = "MM/dd/yyyy")
-    private LocalDate dueDate;
+    // @Column(name = "due_date")
+    // @JsonFormat(pattern = "MM/dd/yyyy")
+    // private LocalDate dueDate;
 
     @ManyToOne
     @JoinColumn(name = "list_id", nullable = false)
     @JsonBackReference
     private Lists list;
+
+    @Column(name = "isCompleted", nullable = false)
+    private boolean completed;
 }
