@@ -1,4 +1,3 @@
-
 <div class="title-content">
     <h1 class="title">Welcome to TaskQuack 𓅰</h1>
 </div>
@@ -21,9 +20,9 @@
             <h1 class="title has-text-warning">
                 Tasks
             </h1>
-            <a class="task" *ngFor="let task of tasks">
+            <div class="task has-text-dark" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{'completed' : task.completed}">
                 <p>{{task.task}}</p>
-            </a>
+            </div>
 
             <button class="taskButton button is-warning is-state" routerLink="./new-task"> New Task</button> 
         </div>

@@ -1,5 +1,6 @@
 export interface Task {
-   taskId: number;
-    task: string;
-    listId: number;
+  taskId: number;
+  task: string;
+  listId: number;
+  completed: boolean;
 }

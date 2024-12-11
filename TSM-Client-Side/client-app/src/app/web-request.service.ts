@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { List } from './models/list.model';
+import { Task } from './models/task.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,11 +24,6 @@ export class WebRequestService {
     return this.http.post(`${this.ROOT_URL}`, payload);
   }
 
-  //update a list by list Id
-  patch(uri: number, payload: String) {
-    return this.http.patch(`${this.ROOT_URL}/${uri}`, payload);
-  }
-
   //delete a list by list Id
   delete(uri: number) {
     return this.http.delete(`${this.ROOT_URL}/${uri}`);
@@ -42,5 +38,10 @@ export class WebRequestService {
   postTask(listId: number, payload: Object) {
     console.log(payload);
     return this.http.post(`${this.ROOT_URL}/${listId}/tasks`, payload);
+  }
+
+  //update a task by its isComplete 
+  patch(listId: number, task: Task, payload: Object) {
+    return this.http.patch(`${this.ROOT_URL}/${listId}/tasks/${task.taskId}`, payload);
   }
 }
