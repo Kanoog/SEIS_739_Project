@@ -8,23 +8,27 @@
                 Lists
             </h1>
             <div class="list-menu">
-                <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list.listId, 'tasks']" routerLinkActive="is-active">
+                <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list.listId, 'tasks']"
+                    routerLinkActive="is-active">
                     <p>{{list.list}}</p>
                 </a>
             </div>
-            
+
             <button class="button is-warning is-state" routerLink="/new-list"> New List</button>
         </div>
- 
+
         <div class="task-list-container">
             <h1 class="title has-text-warning">
                 Tasks
             </h1>
-            <div class="task has-text-dark" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{'completed' : task.completed}">
-                <p>{{task.task}}</p>
+            <div class="list-task">
+                <div class="task has-text-dark" *ngFor="let task of tasks" (click)="onTaskClick(task)"
+                    [ngClass]="{'completed' : task.completed}">
+                    <p>{{task.task}}</p>
+                </div>
             </div>
 
-            <button class="taskButton button is-warning is-state" routerLink="./new-task"> New Task</button> 
+            <button class="taskButton button is-warning is-state" routerLink="./new-task"> New Task</button>
         </div>
     </div>
 </div>
