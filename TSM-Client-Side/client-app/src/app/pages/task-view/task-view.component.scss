@@ -71,12 +71,12 @@
         margin-bottom: 5px;
 
         &:hover {
-            background: rgb(255,219,88);
+            background: rgb(255, 219, 88);
         }
 
         &.is-active {
-            background-color:  rgb(255,219,88);
-            color: #06402B;
+            background-color: rgb(255, 219, 88);
+            color: #133f28;
         }
     }
 
@@ -88,7 +88,6 @@
     border-radius: 5px;
     margin-top: 10px;
 
-
     &:not(.complete) {
         cursor: pointer;
         transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -98,13 +97,13 @@
         }
 
         &:hover {
-            box-shadow: 0 0 0 5px #eeeeee;
+            box-shadow: 0 0 0 5px #d7e3eb;
         }
     }
 
-    &.complete {
+    &.completed {
         text-decoration: line-through;
-        opacity: 0.8;
+        opacity: 0.6;
     }
 }
 
@@ -115,7 +114,7 @@ button {
 .taskButton {
     position: absolute;
     top: 40px;
-    right:35px;
+    right: 35px;
     height: 30px;
-    width:100px;
+    width: 100px;
 }

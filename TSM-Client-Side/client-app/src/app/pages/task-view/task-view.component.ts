@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../task.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { List } from '../../models/list.model';
+import { Task } from '../../models/task.model';
 
 @Component({
   selector: 'app-task-view',
@@ -10,10 +11,10 @@ import { List } from '../../models/list.model';
 })
 
 export class TaskViewComponent implements OnInit {
-  
-  lists: List[] | undefined;
 
-  tasks: any[] | undefined;
+  lists: List[] = [];
+  listId: number = 0;
+  tasks: Task[] = [];
 
   constructor(
     private taskService: TaskService,
@@ -24,15 +25,23 @@ export class TaskViewComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       if(params['listId']){
         this.taskService.getTasks(params['listId']).subscribe((data: any) => {
-          const tasks = data as any[];
+          const tasks = data as Task[];
           this.tasks = tasks;
         });
+      this.listId = params['listId'];
       }
     });
 
     this.taskService.getLists().subscribe((data) => {
       const lists = data as List[];
       this.lists = lists;
+    });
+  }
+
+  onTaskClick(task: Task) {
+    this.taskService.completeTask(this.listId, task).subscribe(()=>{
+      console.log("completed succesfully"); 
+      task.completed = !task.completed;
     });
   }
 }

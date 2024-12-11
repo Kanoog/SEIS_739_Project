@@ -10,7 +10,8 @@ import { Task } from '../../models/task.model';
 })
 export class NewTaskComponent {
 
-  listId: any;
+  //work on data type
+  listId: number = 0;;
 
   constructor(
     private taskService: TaskService, 
@@ -23,9 +24,9 @@ export class NewTaskComponent {
       this.listId = params['listId'];
     });
   }
+
   createTask(taskName: string) {
     this.taskService.createTask(this.listId, taskName).subscribe((data) => {
-      const newTask = data as Task;
       //navigate back to list page after creating list
       this.router.navigate(['../'], {relativeTo: this.route});
     });
