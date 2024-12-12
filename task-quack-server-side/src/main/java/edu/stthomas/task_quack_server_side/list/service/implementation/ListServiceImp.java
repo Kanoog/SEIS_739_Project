@@ -44,8 +44,7 @@ public class ListServiceImp implements ListService {
     }
 
     @Override
-    public String deleteList(Integer listId) {
+    public void deleteList(Integer listId) {
         lists.deleteById(Long.valueOf(listId));
-        return "The content is deleted";
     }
 }

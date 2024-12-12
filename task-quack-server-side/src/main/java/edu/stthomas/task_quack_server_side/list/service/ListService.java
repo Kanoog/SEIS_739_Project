@@ -19,6 +19,6 @@ public interface ListService {
 
     Lists updateList(Lists list, Integer id);
 
-    String deleteList(Integer id);
+    void deleteList(Integer id);
 
 }

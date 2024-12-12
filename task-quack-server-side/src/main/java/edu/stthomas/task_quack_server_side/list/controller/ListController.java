@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,8 +53,9 @@ public class ListController {
     }
 
     @DeleteMapping("/{id}")
-    public String delete (@PathVariable Integer id) {
-        return service.deleteList(id);
+    public ResponseEntity<HttpStatus> delete (@PathVariable Integer id) {
+        this.service.deleteList(id);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
 }
