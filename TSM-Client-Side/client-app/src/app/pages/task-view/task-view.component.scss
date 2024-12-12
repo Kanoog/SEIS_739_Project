@@ -42,7 +42,7 @@
     flex-direction: column;
     flex-grow: 1;
     background-color: rgb(235, 235, 208);
-    padding: 42px;
+    padding: 30px;
 
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -58,36 +58,47 @@
 .list-menu {
     display: flex;
     flex-direction: column;
-    margin: 15px;
+    margin: 5px;
     flex-grow: 1;
     overflow: auto;
 
     .list-menu-item {
         display: flex;
+        justify-content: space-between;
         align-items: center;
         padding: 10px 15px;
         border-radius: 5px;
         width: 100%;
         color: #5f5f5f;
         margin-bottom: 5px;
-        
+
         &:hover {
             background: rgb(255, 219, 88);
+
         }
 
         &.is-active {
             background-color: rgb(255, 219, 88);
             color: #133f28;
+
+            // .list delete {
+            //     position: absolute;
+            //     right: 50px;
+
+            // }
         }
     }
 }
 
-.list-task{
+.list-task {
+    margin: 0;
     padding: 10px 15px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .task {
+    display: flex;
+    justify-content: space-between;
     background-color: beige;
     padding: 10px 15px;
     border-radius: 5px;
@@ -112,7 +123,28 @@
     }
 }
 
-button {
+.delete-list-button {
+    position: relative;
+    top: 1px;
+    background-color: rgb(254, 141, 3);
+    color: white;
+}
+.delete-task-button {
+    position: relative;
+    top: 1px;
+    right: 2px;
+    background-color: rgb(254, 141, 3);
+    color: white;
+}
+
+.delete-list-button:hover {
+    background-color: red;
+}
+.delete-task-button:hover {
+    background-color: rgb(156, 8, 8);
+}
+
+.button {
     font-family: 'Lato', sans-serif;
 }
 

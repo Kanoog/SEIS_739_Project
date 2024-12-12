@@ -8,10 +8,14 @@
                 Lists
             </h1>
             <div class="list-menu">
-                <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list.listId, 'tasks']"
-                    routerLinkActive="is-active">
+                <div class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list.listId, 'tasks']"
+                    routerLinkActive="is-active" (click)="onDeleteButton(list)">
                     <p>{{list.list}}</p>
-                </a>
+                    <div class="content">
+                        <button *ngIf="selectedList && selectedList.listId === list.listId" class="delete-list-button delete" (click)="onDeleteList(list.listId)"></button>
+                    </div>
+                </div>
+
             </div>
 
             <button class="button is-warning is-state" routerLink="/new-list"> New List</button>
@@ -24,8 +28,11 @@
             <div class="list-task">
                 <div class="task has-text-dark" *ngFor="let task of tasks" (click)="onTaskClick(task)"
                     [ngClass]="{'completed' : task.completed}">
-                    <p>{{task.task}}</p>
-                </div>
+                    <p >{{task.task}}</p>
+                    <div class="content">
+                        <button *ngIf="task.completed" class="delete-task-button delete is-medium"></button>
+                    </div>
+                </div>   
             </div>
 
             <button class="taskButton button is-warning is-state" routerLink="./new-task"> New Task</button>
